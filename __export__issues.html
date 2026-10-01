@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Export Validation Issues</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #1a1a2e;
+      color: #eee;
+    }
+    h1 { color: #ff6b6b; margin-bottom: 0.5rem; }
+    .summary { color: #aaa; margin-bottom: 2rem; }
+    .page {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .page-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #4ecdc4;
+      margin-bottom: 1rem;
+    }
+    .issue {
+      padding: 0.75rem;
+      border-left: 3px solid #ff6b6b;
+      background: #0f0f23;
+      margin-bottom: 1rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .issue.warning { border-left-color: #feca57; }
+    .issue-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .issue-location {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #888;
+    }
+    .issue-message { margin-top: 0.5rem; font-weight: 500; }
+    .issue-rule {
+      font-size: 0.8rem;
+      color: #888;
+      font-family: monospace;
+      margin-top: 0.25rem;
+    }
+    .issue-rule a { color: #4ecdc4; text-decoration: none; }
+    .issue-rule a:hover { text-decoration: underline; }
+    .severity {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+    }
+    .severity.error { background: #ff6b6b33; color: #ff6b6b; }
+    .severity.warning { background: #feca5733; color: #feca57; }
+    .source-snippet {
+      margin-top: 0.75rem;
+      background: #0a0a1a;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: 'SF Mono', Monaco, 'Consolas', monospace;
+      font-size: 0.8rem;
+    }
+    .source-line { display: flex; line-height: 1.6; }
+    .source-line.error-line { background: #ff6b6b22; }
+    .line-num {
+      padding: 0 0.75rem;
+      color: #555;
+      min-width: 3.5rem;
+      text-align: right;
+      user-select: none;
+      border-right: 1px solid #333;
+    }
+    .line-code {
+      padding: 0 0.75rem;
+      white-space: pre;
+      color: #ccc;
+      overflow-x: auto;
+    }
+    .error-line .line-num {
+      color: #ff6b6b;
+      background: #ff6b6b11;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚠️ Export Validation Issues</h1>
+  <p class="summary">125 issues found across 17 pages</p>
+  
+  <div class="page">
+    <div class="page-title">📄 about.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 106, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">104</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">106</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">108</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 107, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">105</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">107</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">108</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">109</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 115, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">113</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">115</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">116</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">117</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 384, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">382</span><code class="line-code">            &lt;div class=&quot;image-text-wrapper&quot;&gt;</code></div><div class="source-line"><span class="line-num">383</span><code class="line-code">              &lt;div class=&quot;image-wrapper reveal reveal-fade&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">384</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">385</span><code class="line-code">                  src=&quot;assets/images/mango-fruiting-2.png&quot;</code></div><div class="source-line"><span class="line-num">386</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 753, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">751</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">752</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-1&quot;</code></div><div class="source-line error-line"><span class="line-num">753</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">754</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-1&quot;</code></div><div class="source-line"><span class="line-num">755</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 797, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">795</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">796</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-2&quot;</code></div><div class="source-line error-line"><span class="line-num">797</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">798</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-2&quot;</code></div><div class="source-line"><span class="line-num">799</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 840, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">838</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">839</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-3&quot;</code></div><div class="source-line error-line"><span class="line-num">840</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">841</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-3&quot;</code></div><div class="source-line"><span class="line-num">842</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 885, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">883</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">884</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-4&quot;</code></div><div class="source-line error-line"><span class="line-num">885</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">886</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-4&quot;</code></div><div class="source-line"><span class="line-num">887</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 928, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">926</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">927</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-5&quot;</code></div><div class="source-line error-line"><span class="line-num">928</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">929</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-5&quot;</code></div><div class="source-line"><span class="line-num">930</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 936, Column 30</span>
+      </div>
+      <div class="issue-message">aria-hidden cannot be used on focusable elements (hidden by ancestor element)</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/hidden-focusable.html" target="_blank">hidden-focusable</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">934</span><code class="line-code">                          &lt;p&gt;</code></div><div class="source-line"><span class="line-num">935</span><code class="line-code">                            Call or WhatsApp us on +233 55 116 5132, or email</code></div><div class="source-line error-line"><span class="line-num">936</span><code class="line-code">                            &lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; href=&quot;mailto:info@mangoclinic.org&quot;</code></div><div class="source-line"><span class="line-num">937</span><code class="line-code">                              &gt;info@mangoclinic.org&lt;/a</code></div><div class="source-line"><span class="line-num">938</span><code class="line-code">                            &gt;. Tell us where your farm is, what you grow, roughly how many trees or acres you have, and</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 1076, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1074</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">1075</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">1076</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">1077</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">1078</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 contact.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 539, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">537</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">538</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-1&quot;</code></div><div class="source-line error-line"><span class="line-num">539</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">540</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-1&quot;</code></div><div class="source-line"><span class="line-num">541</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 583, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">581</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">582</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-2&quot;</code></div><div class="source-line error-line"><span class="line-num">583</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">584</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-2&quot;</code></div><div class="source-line"><span class="line-num">585</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 626, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">624</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">625</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-3&quot;</code></div><div class="source-line error-line"><span class="line-num">626</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">627</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-3&quot;</code></div><div class="source-line"><span class="line-num">628</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 670, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">668</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">669</span><code class="line-code">                      id=&quot;accordion-content-faq-faq-4&quot;</code></div><div class="source-line error-line"><span class="line-num">670</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">671</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-faq-4&quot;</code></div><div class="source-line"><span class="line-num">672</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 718, Column 23</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">716</span><code class="line-code">                      class=&quot;accordion-collapse&quot;</code></div><div class="source-line"><span class="line-num">717</span><code class="line-code">                      id=&quot;accordion-content-faq-block_a9d48020-9a00-41e8-99b7-9d394c5f08bd&quot;</code></div><div class="source-line error-line"><span class="line-num">718</span><code class="line-code">                      role=&quot;region&quot;</code></div><div class="source-line"><span class="line-num">719</span><code class="line-code">                      aria-labelledby=&quot;accordion-trigger-faq-block_a9d48020-9a00-41e8-99b7-9d394c5f08bd&quot;</code></div><div class="source-line"><span class="line-num">720</span><code class="line-code">                      aria-hidden=&quot;true&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 832, Column 66</span>
+      </div>
+      <div class="issue-message">Prefer to use the native &lt;section&gt; element</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/prefer-native-element.html" target="_blank">prefer-native-element</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">830</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">831</span><code class="line-code">            &lt;div class=&quot;embed-container&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">832</span><code class="line-code">              &lt;div class=&quot;embed-code-wrapper reveal reveal-fade&quot; role=&quot;region&quot; aria-label=&quot;Embedded content&quot;&gt;</code></div><div class="source-line"><span class="line-num">833</span><code class="line-code">                &lt;iframe</code></div><div class="source-line"><span class="line-num">834</span><code class="line-code">                  src=&quot;https://script.google.com/macros/s/AKfycbyAsKZrNtz-p4UHk1XPqrxUz01b6uTDS6KZXwRpa_ARb6UzvHwLa-fafXfYzvTTmqFp9Q/exec&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 833, Column 18</span>
+      </div>
+      <div class="issue-message">&lt;iframe&gt; is missing required &quot;title&quot; attribute</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/element-required-attributes.html" target="_blank">element-required-attributes</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">831</span><code class="line-code">            &lt;div class=&quot;embed-container&quot;&gt;</code></div><div class="source-line"><span class="line-num">832</span><code class="line-code">              &lt;div class=&quot;embed-code-wrapper reveal reveal-fade&quot; role=&quot;region&quot; aria-label=&quot;Embedded content&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">833</span><code class="line-code">                &lt;iframe</code></div><div class="source-line"><span class="line-num">834</span><code class="line-code">                  src=&quot;https://script.google.com/macros/s/AKfycbyAsKZrNtz-p4UHk1XPqrxUz01b6uTDS6KZXwRpa_ARb6UzvHwLa-fafXfYzvTTmqFp9Q/exec&quot;</code></div><div class="source-line"><span class="line-num">835</span><code class="line-code">                  style=&quot;width: 100%; height: 800px; border: none&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 847, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">845</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">846</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">847</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">848</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">849</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 index.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 107, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">105</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">107</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">108</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">109</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 108, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">106</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">108</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">109</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">110</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 116, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">114</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">116</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">117</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">118</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 996, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">994</span><code class="line-code">                data-block-id=&quot;block_8d0c492d-c17b-4589-bc2a-77df8cf33f5f&quot;</code></div><div class="source-line"><span class="line-num">995</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">996</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">997</span><code class="line-code">                  src=&quot;assets/images/fruit-king-4-medium.png&quot;</code></div><div class="source-line"><span class="line-num">998</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1041, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1039</span><code class="line-code">                data-block-id=&quot;block_a01ca0c0-3900-4bcb-93f4-852aafd24de3&quot;</code></div><div class="source-line"><span class="line-num">1040</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">1041</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">1042</span><code class="line-code">                  src=&quot;assets/images/crakstop-2-medium.png&quot;</code></div><div class="source-line"><span class="line-num">1043</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1085, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1083</span><code class="line-code">                data-block-id=&quot;block_3142b501-188e-4fea-9106-48d2d282585c&quot;</code></div><div class="source-line"><span class="line-num">1084</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">1085</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">1086</span><code class="line-code">                  src=&quot;assets/images/paclo-max-2-medium.png&quot;</code></div><div class="source-line"><span class="line-num">1087</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1127, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1125</span><code class="line-code">                data-block-id=&quot;block_eb53ce12-1324-4eef-b3c0-43ecdda02531&quot;</code></div><div class="source-line"><span class="line-num">1126</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">1127</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">1128</span><code class="line-code">                  src=&quot;assets/images/thiamax-1-medium.png&quot;</code></div><div class="source-line"><span class="line-num">1129</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1169, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1167</span><code class="line-code">                data-block-id=&quot;block_d1eac0c9-d8eb-4651-a77d-189701bfbb30&quot;</code></div><div class="source-line"><span class="line-num">1168</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">1169</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">1170</span><code class="line-code">                  src=&quot;assets/images/azotec-pro-medium.png&quot;</code></div><div class="source-line"><span class="line-num">1171</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1211, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1209</span><code class="line-code">                data-block-id=&quot;block_5a4f0ee6-017d-4323-8750-ba6a40e1d6af&quot;</code></div><div class="source-line"><span class="line-num">1210</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">1211</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">1212</span><code class="line-code">                  src=&quot;assets/images/supreme-cop-1-medium.png&quot;</code></div><div class="source-line"><span class="line-num">1213</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1256, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1254</span><code class="line-code">                data-block-id=&quot;block_e90eec11-d3a4-4fb8-9a29-d15311667289&quot;</code></div><div class="source-line"><span class="line-num">1255</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">1256</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">1257</span><code class="line-code">                  src=&quot;assets/images/amino-acid-medium.png&quot;</code></div><div class="source-line"><span class="line-num">1258</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1301, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1299</span><code class="line-code">                data-block-id=&quot;block_594d2ac7-d287-4df7-b507-5d3c3a4dbc50&quot;</code></div><div class="source-line"><span class="line-num">1300</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">1301</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">1302</span><code class="line-code">                  src=&quot;assets/images/magic-formula-medium.png&quot;</code></div><div class="source-line"><span class="line-num">1303</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1560, Column 15</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1558</span><code class="line-code">              &lt;!-- Before Image --&gt;</code></div><div class="source-line"><span class="line-num">1559</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">1560</span><code class="line-code">              &lt;img</code></div><div class="source-line"><span class="line-num">1561</span><code class="line-code">                src=&quot;assets/images/mango-flowering-1-large.png&quot;</code></div><div class="source-line"><span class="line-num">1562</span><code class="line-code">                alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1577, Column 15</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1575</span><code class="line-code">              &lt;!-- After Image --&gt;</code></div><div class="source-line"><span class="line-num">1576</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">1577</span><code class="line-code">              &lt;img</code></div><div class="source-line"><span class="line-num">1578</span><code class="line-code">                src=&quot;assets/images/mango-harvest.png&quot;</code></div><div class="source-line"><span class="line-num">1579</span><code class="line-code">                alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 1867, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1865</span><code class="line-code">            &lt;div class=&quot;image-text-wrapper&quot;&gt;</code></div><div class="source-line"><span class="line-num">1866</span><code class="line-code">              &lt;div class=&quot;image-wrapper reveal reveal-fade&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">1867</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">1868</span><code class="line-code">                  src=&quot;assets/images/mango-fruiting-1.png&quot;</code></div><div class="source-line"><span class="line-num">1869</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 1996, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1994</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">1995</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">1996</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">1997</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">1998</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 industry-insights.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 530, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">528</span><code class="line-code">            &lt;div class=&quot;image-text-wrapper&quot;&gt;</code></div><div class="source-line"><span class="line-num">529</span><code class="line-code">              &lt;div class=&quot;image-wrapper reveal reveal-fade&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">530</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">531</span><code class="line-code">                  src=&quot;assets/images/training-1.png&quot;</code></div><div class="source-line"><span class="line-num">532</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 614, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">612</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">613</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">614</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">615</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">616</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 our-inputs.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 353, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">351</span><code class="line-code">                data-block-id=&quot;block_878439fe-8eae-45c0-b7c3-79800b18b1d7&quot;</code></div><div class="source-line"><span class="line-num">352</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">353</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">354</span><code class="line-code">                  src=&quot;assets/images/fruit-king-4-medium.png&quot;</code></div><div class="source-line"><span class="line-num">355</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 388, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">386</span><code class="line-code">                data-block-id=&quot;block_7482c929-1257-4589-b1e0-77860471ebb6&quot;</code></div><div class="source-line"><span class="line-num">387</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">388</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">389</span><code class="line-code">                  src=&quot;assets/images/crakstop-2-medium.png&quot;</code></div><div class="source-line"><span class="line-num">390</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 419, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">417</span><code class="line-code">                data-block-id=&quot;block_6d476441-7383-4d62-a285-040e89547f11&quot;</code></div><div class="source-line"><span class="line-num">418</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">419</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">420</span><code class="line-code">                  src=&quot;assets/images/paclo-max-2-medium.png&quot;</code></div><div class="source-line"><span class="line-num">421</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 451, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">449</span><code class="line-code">                data-block-id=&quot;block_5fcfda0b-3ef4-499d-b694-a83cebe0df2f&quot;</code></div><div class="source-line"><span class="line-num">450</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">451</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">452</span><code class="line-code">                  src=&quot;assets/images/thiamax-1-medium.png&quot;</code></div><div class="source-line"><span class="line-num">453</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 482, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">480</span><code class="line-code">                data-block-id=&quot;block_538d96be-0740-47b8-9fe4-0444622d7168&quot;</code></div><div class="source-line"><span class="line-num">481</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">482</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">483</span><code class="line-code">                  src=&quot;assets/images/azotec-pro-medium.png&quot;</code></div><div class="source-line"><span class="line-num">484</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 513, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">511</span><code class="line-code">                data-block-id=&quot;block_bfcf00c2-12d4-4d82-8f81-b5bacd83d360&quot;</code></div><div class="source-line"><span class="line-num">512</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">513</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">514</span><code class="line-code">                  src=&quot;assets/images/supreme-cop-1-medium.png&quot;</code></div><div class="source-line"><span class="line-num">515</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 547, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">545</span><code class="line-code">                data-block-id=&quot;block_357e119c-7df8-4289-8d19-fff0b7d4dde6&quot;</code></div><div class="source-line"><span class="line-num">546</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">547</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">548</span><code class="line-code">                  src=&quot;assets/images/yello-sticky-medium.png&quot;</code></div><div class="source-line"><span class="line-num">549</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 579, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">577</span><code class="line-code">                data-block-id=&quot;block_949ecd08-b5c6-4bd6-af49-b470c2635e9c&quot;</code></div><div class="source-line"><span class="line-num">578</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">579</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">580</span><code class="line-code">                  src=&quot;assets/images/phelemon-trap-medium.png&quot;</code></div><div class="source-line"><span class="line-num">581</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 610, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">608</span><code class="line-code">                data-block-id=&quot;block_a8f29ad0-75aa-434d-be35-87795c3088a0&quot;</code></div><div class="source-line"><span class="line-num">609</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">610</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">611</span><code class="line-code">                  src=&quot;assets/images/bandand-cap-medium.png&quot;</code></div><div class="source-line"><span class="line-num">612</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 641, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">639</span><code class="line-code">                data-block-id=&quot;block_d70c3403-2514-440f-82bb-423393b5305b&quot;</code></div><div class="source-line"><span class="line-num">640</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">641</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">642</span><code class="line-code">                  src=&quot;assets/images/cutter-medium.png&quot;</code></div><div class="source-line"><span class="line-num">643</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 675, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">673</span><code class="line-code">                data-block-id=&quot;block_0fbd182a-2c0c-4eb6-a2eb-440969240ce5&quot;</code></div><div class="source-line"><span class="line-num">674</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">675</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">676</span><code class="line-code">                  src=&quot;assets/images/amino-acid-medium.png&quot;</code></div><div class="source-line"><span class="line-num">677</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 709, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">707</span><code class="line-code">                data-block-id=&quot;block_9bc7e350-7a08-4b37-bae1-08ea89080c09&quot;</code></div><div class="source-line"><span class="line-num">708</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">709</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">710</span><code class="line-code">                  src=&quot;assets/images/magic-formula-medium.png&quot;</code></div><div class="source-line"><span class="line-num">711</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 743, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">741</span><code class="line-code">                data-block-id=&quot;block_149c4d67-5ac1-4918-8dad-3e59d264d213&quot;</code></div><div class="source-line"><span class="line-num">742</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">743</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">744</span><code class="line-code">                  src=&quot;assets/images/mangoguard-medium.png&quot;</code></div><div class="source-line"><span class="line-num">745</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 778, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">776</span><code class="line-code">                data-block-id=&quot;block_dc9c64e1-ea22-4355-9037-6b584746d2a4&quot;</code></div><div class="source-line"><span class="line-num">777</span><code class="line-code">              &gt;</code></div><div class="source-line error-line"><span class="line-num">778</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">779</span><code class="line-code">                  src=&quot;assets/images/blue-trap-medium.png&quot;</code></div><div class="source-line"><span class="line-num">780</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 813, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">811</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">812</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">813</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">814</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">815</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 portfolio.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 374, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">372</span><code class="line-code">            &lt;ul class=&quot;widget-card-grid widget-grid&quot; style=&quot;--grid-cols-desktop: 3&quot;&gt;</code></div><div class="source-line"><span class="line-num">373</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-scale&quot; style=&quot;--reveal-delay: 0&quot; data-block-id=&quot;proj-1&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">374</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">375</span><code class="line-code">                  src=&quot;assets/images/crackstop-pro-1.png&quot;</code></div><div class="source-line"><span class="line-num">376</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 401, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">399</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">400</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-scale&quot; style=&quot;--reveal-delay: 1&quot; data-block-id=&quot;proj-2&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">401</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">402</span><code class="line-code">                  src=&quot;assets/images/potassiun-nitrate-1.png&quot;</code></div><div class="source-line"><span class="line-num">403</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 428, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">426</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">427</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-scale&quot; style=&quot;--reveal-delay: 2&quot; data-block-id=&quot;proj-3&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">428</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">429</span><code class="line-code">                  src=&quot;assets/images/paclo-max-1.png&quot;</code></div><div class="source-line"><span class="line-num">430</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 455, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">453</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">454</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-scale&quot; style=&quot;--reveal-delay: 3&quot; data-block-id=&quot;proj-4&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">455</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">456</span><code class="line-code">                  src=&quot;assets/images/azotec-pro-systemic-fungicide-1.png&quot;</code></div><div class="source-line"><span class="line-num">457</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 483, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">481</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">482</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-scale&quot; style=&quot;--reveal-delay: 4&quot; data-block-id=&quot;proj-5&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">483</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">484</span><code class="line-code">                  src=&quot;assets/images/irrigation.png&quot;</code></div><div class="source-line"><span class="line-num">485</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 510, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">508</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">509</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-scale&quot; style=&quot;--reveal-delay: 5&quot; data-block-id=&quot;proj-6&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">510</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">511</span><code class="line-code">                  src=&quot;assets/images/mango-harvest-2.png&quot;</code></div><div class="source-line"><span class="line-num">512</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 814, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">812</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">813</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">814</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">815</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">816</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 services.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 328, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">326</span><code class="line-code">            &lt;ul class=&quot;widget-card-grid widget-grid&quot; style=&quot;--grid-cols-desktop: 3&quot;&gt;</code></div><div class="source-line"><span class="line-num">327</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-up&quot; style=&quot;--reveal-delay: 0&quot; data-block-id=&quot;svc-1&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">328</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">329</span><code class="line-code">                  src=&quot;assets/images/mango-field-medium.png&quot;</code></div><div class="source-line"><span class="line-num">330</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 361, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">359</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">360</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-up&quot; style=&quot;--reveal-delay: 1&quot; data-block-id=&quot;svc-2&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">361</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">362</span><code class="line-code">                  src=&quot;assets/images/diagnose-medium.png&quot;</code></div><div class="source-line"><span class="line-num">363</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 394, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">392</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">393</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-up&quot; style=&quot;--reveal-delay: 2&quot; data-block-id=&quot;svc-3&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">394</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">395</span><code class="line-code">                  src=&quot;assets/images/training-1-medium.png&quot;</code></div><div class="source-line"><span class="line-num">396</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 425, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">423</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">424</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-up&quot; style=&quot;--reveal-delay: 3&quot; data-block-id=&quot;svc-4&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">425</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">426</span><code class="line-code">                  src=&quot;assets/images/mango-harvest-2-medium.png&quot;</code></div><div class="source-line"><span class="line-num">427</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 455, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">453</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">454</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-up&quot; style=&quot;--reveal-delay: 4&quot; data-block-id=&quot;svc-5&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">455</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">456</span><code class="line-code">                  src=&quot;assets/images/market-image-2.png&quot;</code></div><div class="source-line"><span class="line-num">457</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 481, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">479</span><code class="line-code"></code></div><div class="source-line"><span class="line-num">480</span><code class="line-code">              &lt;li class=&quot;widget-card reveal reveal-up&quot; style=&quot;--reveal-delay: 5&quot; data-block-id=&quot;svc-6&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">481</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">482</span><code class="line-code">                  src=&quot;assets/images/crakstop-2-medium.png&quot;</code></div><div class="source-line"><span class="line-num">483</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 677, Column 19</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">675</span><code class="line-code">              &lt;div class=&quot;steps-item reveal reveal-up&quot; style=&quot;--reveal-delay: 0&quot; data-block-id=&quot;step-1&quot;&gt;</code></div><div class="source-line"><span class="line-num">676</span><code class="line-code">                &lt;div class=&quot;steps-image&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">677</span><code class="line-code">                  &lt;img</code></div><div class="source-line"><span class="line-num">678</span><code class="line-code">                    src=&quot;assets/images/mango-field-medium.png&quot;</code></div><div class="source-line"><span class="line-num">679</span><code class="line-code">                    alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 711, Column 19</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">709</span><code class="line-code">              &lt;div class=&quot;steps-item reveal reveal-up&quot; style=&quot;--reveal-delay: 1&quot; data-block-id=&quot;step-2&quot;&gt;</code></div><div class="source-line"><span class="line-num">710</span><code class="line-code">                &lt;div class=&quot;steps-image&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">711</span><code class="line-code">                  &lt;img</code></div><div class="source-line"><span class="line-num">712</span><code class="line-code">                    src=&quot;assets/images/training-3.png&quot;</code></div><div class="source-line"><span class="line-num">713</span><code class="line-code">                    alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 741, Column 19</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">739</span><code class="line-code">              &lt;div class=&quot;steps-item reveal reveal-up&quot; style=&quot;--reveal-delay: 2&quot; data-block-id=&quot;step-3&quot;&gt;</code></div><div class="source-line"><span class="line-num">740</span><code class="line-code">                &lt;div class=&quot;steps-image&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">741</span><code class="line-code">                  &lt;img</code></div><div class="source-line"><span class="line-num">742</span><code class="line-code">                    src=&quot;assets/images/mango-harvest.png&quot;</code></div><div class="source-line"><span class="line-num">743</span><code class="line-code">                    alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 767, Column 19</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">765</span><code class="line-code">              &lt;div class=&quot;steps-item reveal reveal-up&quot; style=&quot;--reveal-delay: 3&quot; data-block-id=&quot;step-4&quot;&gt;</code></div><div class="source-line"><span class="line-num">766</span><code class="line-code">                &lt;div class=&quot;steps-image&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">767</span><code class="line-code">                  &lt;img</code></div><div class="source-line"><span class="line-num">768</span><code class="line-code">                    src=&quot;assets/images/training.png&quot;</code></div><div class="source-line"><span class="line-num">769</span><code class="line-code">                    alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 883, Column 17</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">881</span><code class="line-code">            &lt;div class=&quot;image-text-wrapper&quot;&gt;</code></div><div class="source-line"><span class="line-num">882</span><code class="line-code">              &lt;div class=&quot;image-wrapper reveal reveal-fade&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">883</span><code class="line-code">                &lt;img</code></div><div class="source-line"><span class="line-num">884</span><code class="line-code">                  src=&quot;assets/images/palm-harvest.png&quot;</code></div><div class="source-line"><span class="line-num">885</span><code class="line-code">                  alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 1089, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">1087</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">1088</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">1089</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">1090</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">1091</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 news/ten-years-of-greenfield.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 325, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">323</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">324</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">325</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">326</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">327</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 news/right-way-to-water-new-shrubs.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 329, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">327</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">328</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">329</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">330</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">331</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 news/meet-the-greenfield-crew.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 327, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">325</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">326</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">327</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">328</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">329</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 news/spring-pruning-open-morning.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 324, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">322</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">323</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">324</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">325</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">326</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 news/now-offering-native-meadow-installs.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 325, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">323</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">324</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">325</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">326</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">327</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 projects/wildflower-meadow-on-a-paddock.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 342, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">340</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">341</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">342</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">343</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">344</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 projects/walled-garden-irrigation-and-borders.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 106, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">104</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">106</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">108</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 107, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">105</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">107</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">108</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">109</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 115, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">113</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">115</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">116</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">117</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 345, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">343</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">344</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">345</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">346</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">347</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 projects/sandstone-patio-with-pergola.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 343, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">341</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">342</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">343</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">344</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">345</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 projects/front-garden-gravel-and-grasses.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 104, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">102</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 105, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">103</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">104</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">105</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 113, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">111</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">112</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">113</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">115</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 341, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">339</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">340</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">341</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">342</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">343</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="page-title">📄 projects/courtyard-for-a-narrow-terraced-house.html</div>
+    
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 106, Column 12</span>
+      </div>
+      <div class="issue-message">Anchor link must have a text describing its purpose</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/wcag/h30.html" target="_blank">wcag/h30</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">104</span><code class="line-code">      &lt;div class=&quot;header-inner&quot;&gt;</code></div><div class="source-line"><span class="line-num">105</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">106</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line"><span class="line-num">107</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">108</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 107, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">105</span><code class="line-code">        &lt;div class=&quot;header-branding&quot;&gt;</code></div><div class="source-line"><span class="line-num">106</span><code class="line-code">          &lt;a href=&quot;index.html&quot; class=&quot;header-logo&quot;&gt;</code></div><div class="source-line error-line"><span class="line-num">107</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">108</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo-1.png&quot;</code></div><div class="source-line"><span class="line-num">109</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue warning">
+      <div class="issue-header">
+        <span class="severity warning">warning</span>
+        <span class="issue-location">Line 115, Column 13</span>
+      </div>
+      <div class="issue-message">Image has empty alt text. Add descriptive alt text, or leave it empty only if the image is purely decorative.</div>
+      <div class="issue-rule">widgetizer/img-empty-alt</div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">113</span><code class="line-code">            /&gt;</code></div><div class="source-line"><span class="line-num">114</span><code class="line-code"></code></div><div class="source-line error-line"><span class="line-num">115</span><code class="line-code">            &lt;img</code></div><div class="source-line"><span class="line-num">116</span><code class="line-code">              src=&quot;../assets/images/mango-clinic-logo.png&quot;</code></div><div class="source-line"><span class="line-num">117</span><code class="line-code">              alt=&quot;&quot;</code></div></div>
+    </div>
+    <div class="issue error">
+      <div class="issue-header">
+        <span class="severity error">error</span>
+        <span class="issue-location">Line 345, Column 35</span>
+      </div>
+      <div class="issue-message">Class &quot;widget-footer&quot; duplicated</div>
+      <div class="issue-rule"><a href="https://html-validate.org/rules/no-dup-class.html" target="_blank">no-dup-class</a></div>
+      <div class="source-snippet"><div class="source-line"><span class="line-num">343</span><code class="line-code">    &lt;footer</code></div><div class="source-line"><span class="line-num">344</span><code class="line-code">      id=&quot;footer&quot;</code></div><div class="source-line error-line"><span class="line-num">345</span><code class="line-code">      class=&quot;widget widget-footer widget-footer color-scheme-highlight-secondary&quot;</code></div><div class="source-line"><span class="line-num">346</span><code class="line-code">      data-widget-id=&quot;footer&quot;</code></div><div class="source-line"><span class="line-num">347</span><code class="line-code">      data-widget-type=&quot;footer&quot;</code></div></div>
+    </div>
+  </div>
+</body>
+</html>

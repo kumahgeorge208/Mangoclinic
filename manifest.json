@@ -1,0 +1,26 @@
+{
+  "generator": "widgetizer",
+  "widgetizerVersion": "0.9.9",
+  "themeId": "arch",
+  "themeVersion": "0.9.9",
+  "exportVersion": 2,
+  "exportedAt": "2026-10-01T22:14:18.766Z",
+  "projectName": "MANGO CLINIC",
+  "collections": [
+    {
+      "type": "news",
+      "itemPages": true,
+      "itemCount": 5
+    },
+    {
+      "type": "projects",
+      "itemPages": true,
+      "itemCount": 5
+    },
+    {
+      "type": "services",
+      "itemPages": true,
+      "itemCount": 0
+    }
+  ]
+}
